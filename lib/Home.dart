@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:keepnote/SideMenuBar.dart';
 import 'package:keepnote/constants.dart';
 
 class Home extends StatefulWidget {
@@ -9,15 +10,20 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  GlobalKey<ScaffoldState> _drawerkey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      endDrawerEnableOpenDragGesture: true,
+      key: _drawerkey,
+      drawer: SideMenu(),
       backgroundColor: mybgColor,
       body: SafeArea(
         child: Container(
           child: Column(
             children: [
               Container(
+                padding: EdgeInsets.only(right: 10,left: 10),
                 margin: EdgeInsets.symmetric(horizontal: 10,vertical: 15),
                 width: MediaQuery.of(context).size.width,
                 height: 55,
@@ -28,13 +34,22 @@ class _HomeState extends State<Home> {
                     BoxShadow(
                         color: myblack,
                         spreadRadius: 1*.7,
-                        blurRadius: 3
+                        blurRadius: 2
                     ),
                   ],
                 ),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    IconButton(onPressed: (){}, icon: Icon(Icons.menu,color: mywhite,))
+                    IconButton(onPressed: (){
+                      _drawerkey.currentState?.openDrawer();
+                      }, icon: Icon(Icons.menu,color: mywhite,size: 30,)),
+                    Center(child: Text("Search Your Note",style: TextStyle(fontSize: 18,color: Colors.grey),),),
+                    Row(children: [
+                      IconButton(onPressed: (){}, icon: Icon(Icons.grid_view,color: mywhite,size: 28)),
+                      SizedBox(width: 8,),
+                      CircleAvatar(radius: 17,)
+                    ],)
                   ],
                 ),
               )
