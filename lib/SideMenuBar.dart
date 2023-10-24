@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:keepnote/constants.dart';
+import 'package:keepnote/widegts/DrawerItem.dart';
 
 class SideMenu extends StatefulWidget {
   const SideMenu({super.key});
@@ -28,36 +29,10 @@ class _SideMenuState extends State<SideMenu> {
             Divider(
               color: mywhite.withOpacity(.3),
             ),
-            TextButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                      Colors.orangeAccent.withOpacity(0.3)),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(50),
-                          bottomRight: Radius.circular(50)),
-                    ),
-                  ),
-                ),
-                onPressed: () {},
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.lightbulb_outline,
-                      size: 28,
-                      color: mywhite.withOpacity(.8),
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Text(
-                      "Notes",
-                      style: TextStyle(
-                          color: mywhite.withOpacity(.8), fontSize: 20),
-                    )
-                  ],
-                ))
+            SizedBox(height: 5,),
+           draweritem(icon:Icon(Icons.lightbulb_outline), title:"Note"),
+            SizedBox(height: 10,),
+            draweritem(icon:Icon(Icons.send_and_archive_rounded), title:"Archive"),
           ],
         ),
       ),
