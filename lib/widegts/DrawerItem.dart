@@ -17,18 +17,22 @@ class _draweritemState extends State<draweritem> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        color: Colors.purple.shade200.withOpacity(.3),
+        borderRadius: BorderRadius.only(topRight: Radius.circular(10),topLeft:Radius.circular(10),)
+      ),
       child: TextButton(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(
-                Colors.orangeAccent.withOpacity(0.3)),
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(50),
-                    bottomRight: Radius.circular(50)),
-              ),
-            ),
-          ),
+          // style: ButtonStyle(
+          //   backgroundColor: MaterialStateProperty.all(
+          //       Colors.orangeAccent.withOpacity(0.3)),
+          //   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          //     RoundedRectangleBorder(
+          //       borderRadius: BorderRadius.only(
+          //           topRight: Radius.circular(50),
+          //           bottomRight: Radius.circular(50)),
+          //     ),
+          //   ),
+          // ),
           onPressed: () {},
           child: Row(
             children: [
@@ -38,7 +42,7 @@ class _draweritemState extends State<draweritem> {
                 color: mywhite.withOpacity(.8),
               ),
               SizedBox(
-                width: 20,
+                width: 27,
               ),
               Text(
                 widget.title,

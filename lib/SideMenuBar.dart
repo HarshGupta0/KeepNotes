@@ -33,6 +33,8 @@ class _SideMenuState extends State<SideMenu> {
            draweritem(icon:Icon(Icons.lightbulb_outline), title:"Note"),
             SizedBox(height: 10,),
             draweritem(icon:Icon(Icons.send_and_archive_rounded), title:"Archive"),
+            SizedBox(height: 10,),
+            draweritem(icon:Icon(Icons.settings_outlined), title:"Settings"),
           ],
         ),
       ),

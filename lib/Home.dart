@@ -52,7 +52,15 @@ class _HomeState extends State<Home> {
                     ],)
                   ],
                 ),
-              )
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 20),
+                child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text("ALL",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: mywhite.withOpacity(.3)),),
+                ],
+              ),)
             ],
           ),
         ),
