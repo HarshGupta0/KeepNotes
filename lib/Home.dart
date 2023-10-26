@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:keepnote/SideMenuBar.dart';
 import 'package:keepnote/constants.dart';
-
+import 'package:keepnote/NoteView.dart';
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -113,21 +113,24 @@ class _HomeState extends State<Home> {
                             InkWell(
                               onTap: ()
                               {
-                                // Navigator.push(context, MaterialPageRoute(builder: (context) => NoteView()));
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => NoteView()));
                               },
                               child:
                               Container(
                                 padding: EdgeInsets.all(10),
                                 decoration: BoxDecoration(
-                                    border: Border.all(color: mywhite.withOpacity(0.4)),
-                                    borderRadius: BorderRadius.circular(7)),
+                                    color:index.isEven?Colors.purple.shade200.withOpacity(.3) :Colors.pink.shade200.withOpacity(.4) ,
+                                    border: Border.all(color: mywhite.withOpacity(0.6)),
+                                    borderRadius: BorderRadius.circular(8)
+
+                                ),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text("HEADING",
                                         style: TextStyle(
                                             color: mywhite,
-                                            fontSize: 20,
+                                            fontSize: 22,
                                             fontWeight: FontWeight.bold)),
                                     SizedBox(
                                       height: 10,
@@ -138,13 +141,13 @@ class _HomeState extends State<Home> {
                                           ? "${note.substring(0, 250)}..."
                                           : note
                                           : note1,
-                                      style: TextStyle(color: mywhite),
+                                      style: TextStyle(color: mywhite,fontSize: 15),
                                     )
                                   ],
                                 ),
                               ),
 
-                            )
+                            ),
                     )),
               ],
             ),
